@@ -34,5 +34,6 @@
     </HBox>
 
     <Hyperlink fx:id="gotoLOGIN" GridPane.columnIndex="1" GridPane.rowIndex="8" onAction="#handleLoginAction" text="Go to Login" />
-    
+
+
 </GridPane>

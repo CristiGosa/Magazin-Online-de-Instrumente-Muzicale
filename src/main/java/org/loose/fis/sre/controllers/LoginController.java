@@ -6,28 +6,29 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.scene.text.Text;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
-import org.loose.fis.sre.exceptions.UsernameAlreadyExistsException;
-import org.loose.fis.sre.services.UserService;
-
-import java.io.IOException;
 
 public class LoginController {
 
     @FXML
-    private Text registrationMessage;
+    private PasswordField Password;
     @FXML
-    private PasswordField passwordField;
-    @FXML
-    private TextField usernameField;
+    private TextField Username;
     private Parent root;
     private Stage stage;
-    private Scene scene;
+
+
+    public void Login(ActionEvent event)throws Exception{
+
+
+        //String encryptedPass = UserService.encodePassword(username,password);
+
+        //if(UserService.checkAccountInformation(username,encryptedPass) == 1)
+        //    ClientController.display();
+        //if(UserService.checkAccountInformation(username,encryptedPass) == 2)
+        //    MainStageController.display();
+    }
 
 
     public void handleLoginAction(ActionEvent event) throws Exception {
