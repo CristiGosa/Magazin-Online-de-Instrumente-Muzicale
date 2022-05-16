@@ -17,7 +17,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         initDirectory();
         UserService.initDatabase();
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("BuyerHomePage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("SellerHomePage.fxml"));
         primaryStage.setTitle("Registration Example");
         primaryStage.setScene(new Scene(root, 579, 441));
         primaryStage.show();
