@@ -17,7 +17,7 @@ import org.loose.fis.sre.services.UserService;
 
 import java.io.IOException;
 
-public class RegistrationController {
+public class LoginController {
 
     @FXML
     private Text registrationMessage;
@@ -25,33 +25,16 @@ public class RegistrationController {
     private PasswordField passwordField;
     @FXML
     private TextField usernameField;
-    @FXML
-    private Hyperlink gotoLOGIN;
-    @FXML
-    private ChoiceBox role;
     private Parent root;
     private Stage stage;
+    private Scene scene;
 
-    @FXML
-    public void initialize() {
-        role.getItems().addAll("Buyer", "Seller");
-    }
-
-    @FXML
-    public void handleRegisterAction() {
-        try {
-            UserService.addUser(usernameField.getText(), passwordField.getText(), (String) role.getValue());
-            registrationMessage.setText("Account created successfully!");
-        } catch (UsernameAlreadyExistsException e) {
-            registrationMessage.setText(e.getMessage());
-        }
-    }
 
     public void handleLoginAction(ActionEvent event) throws Exception {
-        this.root = (Parent)FXMLLoader.load(getClass().getClassLoader().getResource("LoginPage.fxml"));
+        this.root = (Parent)FXMLLoader.load(getClass().getClassLoader().getResource("register.fxml"));
         this.stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(this.root, 300, 275);
-        this.stage.setTitle("Login");
+        Scene scene = new Scene(this.root, 300,275);
+        this.stage.setTitle("Registration");
         this.stage.setScene(scene);
         this.stage.show();
     }
