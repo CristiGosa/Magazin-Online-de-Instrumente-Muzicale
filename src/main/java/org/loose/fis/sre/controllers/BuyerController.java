@@ -18,7 +18,7 @@ public class BuyerController {
     @FXML
     private Button SignOutBuyer;
     @FXML
-    private Button AvailableProducts, Buy, HomePage;
+    private Button AvailableProducts, Buy, HomePage, History, Review;
 
 
     public void gotoPages(ActionEvent event)throws Exception{
@@ -42,7 +42,23 @@ public class BuyerController {
             this.root = (Parent)FXMLLoader.load(getClass().getClassLoader().getResource("Buy.fxml"));
             this.stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             Scene scene = new Scene(this.root);
-            this.stage.setTitle("Home Page");
+            this.stage.setTitle("Buy Products");
+            this.stage.setScene(scene);
+            this.stage.show();
+        }
+        if(event.getSource() == History){
+            this.root = (Parent)FXMLLoader.load(getClass().getClassLoader().getResource("HistoryBuyer.fxml"));
+            this.stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(this.root);
+            this.stage.setTitle("History");
+            this.stage.setScene(scene);
+            this.stage.show();
+        }
+        if(event.getSource() == Review){
+            this.root = (Parent)FXMLLoader.load(getClass().getClassLoader().getResource("BuyerReview.fxml"));
+            this.stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(this.root);
+            this.stage.setTitle("Review");
             this.stage.setScene(scene);
             this.stage.show();
         }
