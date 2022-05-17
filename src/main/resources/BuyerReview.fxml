@@ -13,12 +13,12 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="169.0" style="-fx-background-color: black;">
                <children>
-                  <Button layoutX="19.0" layoutY="21.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="203.0" style="-fx-background-color: ORANGE;" text="HOME" />
-                  <Button layoutX="19.0" layoutY="178.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="203.0" style="-fx-background-color: ORANGE;" text="Purchase History" />
+                  <Button fx:id="HomePage" onAction="#gotoPages" layoutX="19.0" layoutY="21.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="203.0" style="-fx-background-color: ORANGE;" text="HOME" />
+                  <Button fx:id="History" onAction="#gotoPages" layoutX="19.0" layoutY="178.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="203.0" style="-fx-background-color: ORANGE;" text="Purchase History" />
                   <Button layoutX="19.0" layoutY="226.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="203.0" style="-fx-background-color: ORANGE;" text="Leave a review" />
                   <Button fx:id="SignOutBuyer" layoutX="91.0" layoutY="481.0" mnemonicParsing="false" onAction="#SignOut" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: red pink;" text="Log out" textFill="#fbdddd" />
-                  <Button layoutX="19.0" layoutY="68.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="203.0" style="-fx-background-color: ORANGE;" text="Available products" />
-                  <Button layoutX="19.0" layoutY="121.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="203.0" style="-fx-background-color: ORANGE;" text="Buy " />
+                  <Button fx:id="AvailableProducts" onAction="#gotoPages" layoutX="19.0" layoutY="68.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="203.0" style="-fx-background-color: ORANGE;" text="Available products" />
+                  <Button fx:id="Buy" onAction="#gotoPages" layoutX="19.0" layoutY="121.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="203.0" style="-fx-background-color: ORANGE;" text="Buy " />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: beige;">
