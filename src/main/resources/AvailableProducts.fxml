@@ -23,7 +23,7 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <TableView layoutX="-2.0" layoutY="44.0" prefHeight="506.0" prefWidth="572.0" style="-fx-background-color: beige;">
+                  <TableView layoutX="-2.0" layoutY="44.0" prefHeight="506.0" prefWidth="572.0" style="-fx-background-color: light;">
                     <columns>
                       <TableColumn prefWidth="124.00001788139343" text="Name" />
                       <TableColumn prefWidth="88.0000228881836" text="Category" />
