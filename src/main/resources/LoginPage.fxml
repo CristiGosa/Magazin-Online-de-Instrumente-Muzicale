@@ -20,6 +20,7 @@
 
     <Label text="Password:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
 
+    <Text fx:id="registrationMess"  GridPane.columnIndex="1" GridPane.rowIndex="7"/>
     <PasswordField fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
 
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="5">

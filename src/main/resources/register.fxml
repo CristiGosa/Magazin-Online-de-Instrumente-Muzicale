@@ -33,7 +33,7 @@
         <Button onAction="#handleRegisterAction" text="Register"/>
     </HBox>
 
-    <Hyperlink fx:id="gotoLOGIN" GridPane.columnIndex="1" GridPane.rowIndex="8" onAction="#handleLoginAction" text="Go to Login" />
+    <Hyperlink fx:id="gotoLOGIN" GridPane.columnIndex="1" GridPane.rowIndex="8" onAction="#handleLoginAc" text="Go to Login" />
 
 
 </GridPane>

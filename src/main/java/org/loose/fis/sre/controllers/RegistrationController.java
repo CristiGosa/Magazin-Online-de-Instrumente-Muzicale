@@ -12,6 +12,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import org.loose.fis.sre.Main;
 import org.loose.fis.sre.exceptions.UsernameAlreadyExistsException;
 import org.loose.fis.sre.services.UserService;
 
@@ -47,7 +48,7 @@ public class RegistrationController {
         }
     }
 
-    public void handleLoginAction(ActionEvent event) throws Exception {
+    public void handleLoginAc(ActionEvent event) throws Exception {
         this.root = (Parent)FXMLLoader.load(getClass().getClassLoader().getResource("LoginPage.fxml"));
         this.stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(this.root, 300, 275);
@@ -55,4 +56,6 @@ public class RegistrationController {
         this.stage.setScene(scene);
         this.stage.show();
     }
+
+
 }
