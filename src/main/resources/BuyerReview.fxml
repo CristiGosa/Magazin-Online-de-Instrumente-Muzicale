@@ -28,6 +28,7 @@
                   <Text layoutX="21.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Write your review here:" />
                   <TextArea layoutX="21.0" layoutY="288.0" prefHeight="200.0" prefWidth="317.0" />
                   <Text fill="#624444" layoutX="45.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 30;" text="Let your seller know your experience with the latest purchase !" textAlignment="CENTER" wrappingWidth="482.83269786834717" />
+                  <Button layoutX="190.0" layoutY="505.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="147.0" text="Leave Review" />
                </children>
             </AnchorPane>
         </items>
