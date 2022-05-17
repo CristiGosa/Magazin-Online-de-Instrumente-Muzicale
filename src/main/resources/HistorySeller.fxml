@@ -31,7 +31,7 @@
                         <TableColumn minWidth="0.0" prefWidth="197.99990844726562" text="BuyerName" />
                     </columns>
                   </TableView>
-                  <TextField alignment="CENTER" layoutX="1.0" layoutY="-2.0" prefHeight="41.0" prefWidth="642.0" style="-fx-font-size: 22; -fx-background-color: red;" text="Your history of sold instruments :" />
+                  <TextField alignment="CENTER" layoutX="1.0" layoutY="-2.0" prefHeight="41.0" prefWidth="642.0" style="-fx-font-size: 22; -fx-background-color: light;" text="Your history of sold instruments :" />
                </children>
             </AnchorPane>
         </items>
