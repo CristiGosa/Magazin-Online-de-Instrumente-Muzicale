@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="554.0" prefWidth="822.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.loose.fis.sre.controllers.SellerController">
+   <children>
+      <SplitPane dividerPositions="0.21277461350691623" prefHeight="554.0" prefWidth="822.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="436.0" prefWidth="167.0" style="-fx-background-color: beige;">
+               <children>
+                  <Button layoutX="19.0" layoutY="14.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="131.0" style="-fx-background-color: green;" text="HOME" textFill="#ffecec" />
+                  <Button layoutX="20.0" layoutY="90.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="131.0" style="-fx-background-color: green;" text="Sell an instrument" textFill="WHITE" />
+                  <Button fx:id="SignOutSeller" layoutX="56.0" layoutY="504.0" mnemonicParsing="false" onAction="#SignOut" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: red pink;" text="Log out" textFill="#fbdddd" />
+                  <Button layoutX="19.0" layoutY="341.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="131.0" style="-fx-background-color: green;" text="Selling history" textFill="#ffecec" />
+                  <Button layoutX="20.0" layoutY="253.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="131.0" style="-fx-background-color: green;" text="My reviews" textFill="#ffecec" />
+                  <Button layoutX="20.0" layoutY="172.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="131.0" style="-fx-background-color: green;" text="Delete an instrument" textFill="#ffecec" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="551.0" prefWidth="570.0">
+               <children>
+                  <TableView layoutX="-4.0" layoutY="41.0" prefHeight="510.0" prefWidth="648.0" style="-fx-background-color: opal;">
+                    <columns>
+                      <TableColumn prefWidth="225.33329272270203" text="Name" />
+                      <TableColumn prefWidth="99.33338928222656" text="Price" />
+                        <TableColumn prefWidth="126.66659545898438" text="Category" />
+                        <TableColumn minWidth="0.0" prefWidth="197.99990844726562" text="BuyerName" />
+                    </columns>
+                  </TableView>
+                  <TextField alignment="CENTER" layoutX="1.0" layoutY="-2.0" prefHeight="41.0" prefWidth="642.0" style="-fx-font-size: 22; -fx-background-color: red;" text="Your history of sold instruments :" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
