@@ -6,7 +6,8 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="441.0" prefWidth="579.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="441.0" prefWidth="579.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.loose.fis.sre.controllers.SellerController">
    <children>
       <SplitPane dividerPositions="0.298" prefHeight="441.0" prefWidth="579.0">
         <items>
@@ -14,7 +15,7 @@
                <children>
                   <Button layoutX="19.0" layoutY="60.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="131.0" style="-fx-background-color: green;" text="Sell an instrument" textFill="#ffecec" />
                   <Button layoutX="19.0" layoutY="165.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="131.0" style="-fx-background-color: green;" text="Selling history" textFill="WHITE" />
-                  <Button layoutX="56.0" layoutY="381.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="57.0" style="-fx-background-color: red pink;" text="Log out" textFill="#fbdddd" />
+                  <Button fx:id="SignOutSeller" onAction="#SignOut" layoutX="56.0" layoutY="381.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: red pink;" text="Log out" textFill="#fbdddd" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="439.0" prefWidth="400.0">

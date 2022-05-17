@@ -36,6 +36,18 @@ public class UserService {
         }
     }
 
+    public static int checkAccountInformation(String username, String password) {
+        for (User user : UserService.userRepository.find()) {
+            if (Objects.equals(username, user.getUsername()) && Objects.equals(password, user.getPassword())) {
+                if(user.getRole().equals("Buyer"))
+                    return 1;
+                else if(user.getRole().equals("Seller"))
+                    return 2;
+            }
+        }
+        return 0;
+    }
+
     public static String encodePassword(String salt, String password) {
         MessageDigest md = getMessageDigest();
         md.update(salt.getBytes(StandardCharsets.UTF_8));

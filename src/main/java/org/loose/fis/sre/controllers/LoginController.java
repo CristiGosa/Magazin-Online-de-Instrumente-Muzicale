@@ -9,6 +9,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import org.loose.fis.sre.exceptions.LoginExceptions;
+import org.loose.fis.sre.services.UserService;
 
 import java.io.IOException;
 
@@ -41,8 +43,21 @@ public class LoginController {
         //Main m = new Main();
         if(usernameField.getText().isEmpty() || passwordField.getText().isEmpty() ) {
             registrationMess.setText("Complete all fields!");
+        }else {
+            String username = usernameField.getText();
+            String password = passwordField.getText();
+            String encryptedPass = UserService.encodePassword(username, password);
+
+            if (UserService.checkAccountInformation(username, encryptedPass) == 1)
+                BuyerController.display();
+            else if (UserService.checkAccountInformation(username, encryptedPass) == 2)
+                SellerController.display();
+            else LoginExceptions.display();
+
         }
     }
+
+
 
 
     public void handleLoginAction(ActionEvent event) throws Exception {
