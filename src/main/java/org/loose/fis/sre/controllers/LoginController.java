@@ -7,19 +7,26 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class LoginController {
 
     @FXML
-    private PasswordField Password;
+    private PasswordField passwordField;
     @FXML
-    private TextField Username;
+    private TextField usernameField;
+
     private Parent root;
     private Stage stage;
+    @FXML
+    private Text registrationMess;
 
 
     public void Login(ActionEvent event)throws Exception{
+        checkLogin();
 
 
         //String encryptedPass = UserService.encodePassword(username,password);
@@ -28,6 +35,13 @@ public class LoginController {
         //    ClientController.display();
         //if(UserService.checkAccountInformation(username,encryptedPass) == 2)
         //    MainStageController.display();
+    }
+
+    private void checkLogin() throws IOException {
+        //Main m = new Main();
+        if(usernameField.getText().isEmpty() || passwordField.getText().isEmpty() ) {
+            registrationMess.setText("Complete all fields!");
+        }
     }
 
 
