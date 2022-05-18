@@ -15,13 +15,13 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="436.0" prefWidth="167.0" style="-fx-background-color: beige;">
                <children>
-                  <Button layoutX="19.0" layoutY="14.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="131.0" style="-fx-background-color: green;" text="HOME" textFill="#ffecec" />
+                  <Button fx:id="Home" onAction="#gotoPages" layoutX="19.0" layoutY="14.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="131.0" style="-fx-background-color: green;" text="HOME" textFill="#ffecec" />
                   <Button layoutX="20.0" layoutY="90.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="131.0" style="-fx-background-color: green;" text="Sell an instrument" textFill="WHITE" />
                   <Button fx:id="SignOutSeller" layoutX="56.0" layoutY="504.0" mnemonicParsing="false" onAction="#SignOut" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: red pink;" text="Log out" textFill="#fbdddd" />
-                  <Button layoutX="19.0" layoutY="341.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="131.0" style="-fx-background-color: green;" text="Selling history" textFill="#ffecec" />
-                  <Button layoutX="20.0" layoutY="253.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="131.0" style="-fx-background-color: green;" text="My reviews" textFill="#ffecec" />
-                  <Button layoutX="20.0" layoutY="172.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="131.0" style="-fx-background-color: green;" text="Delete an instrument" textFill="#ffecec" />
                   <Button layoutX="19.0" layoutY="423.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="131.0" style="-fx-background-color: green;" text="My instruments" textFill="#ffecec" />
+                  <Button fx:id="History" onAction="#gotoPages" layoutX="19.0" layoutY="341.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="131.0" style="-fx-background-color: green;" text="Selling history" textFill="#ffecec" />
+                  <Button fx:id="Review" onAction="#gotoPages" layoutX="20.0" layoutY="253.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="131.0" style="-fx-background-color: green;" text="My reviews" textFill="#ffecec" />
+                  <Button fx:id="Delete" onAction="#gotoPages" layoutX="20.0" layoutY="172.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="131.0" style="-fx-background-color: green;" text="Delete an instrument" textFill="#ffecec" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="551.0" prefWidth="570.0">
@@ -33,14 +33,14 @@
                   </ImageView>
                   <Text layoutX="21.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 33;" text="Enter the informations about the product listed for selling" textAlignment="CENTER" wrappingWidth="600.9101715087891" />
                   <Text layoutX="49.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name :" />
-                  <TextField layoutX="88.0" layoutY="175.0" />
-                  <TextField layoutX="88.0" layoutY="231.0" />
+                  <TextField fx:id="InstrName" layoutX="88.0" layoutY="175.0" promptText="Enter Name"/>
+                  <TextField fx:id="InstrCateg" layoutX="88.0" layoutY="231.0" promptText="Enter Category"/>
                   <Text layoutX="34.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Category :" />
                   <Text layoutX="52.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price :" />
-                  <TextField layoutX="88.0" layoutY="289.0" />
+                  <TextField fx:id="InstrPrice" layoutX="88.0" layoutY="289.0" promptText="Enter Price" />
                   <Text layoutX="311.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description :" />
-                  <TextArea layoutX="311.0" layoutY="187.0" prefHeight="137.0" prefWidth="201.0" />
-                  <Button layoutX="237.0" layoutY="363.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="113.0" text="Add instrument" />
+                  <TextArea fx:id="InstrDescr" layoutX="311.0" layoutY="187.0" prefHeight="137.0" prefWidth="201.0" promptText="Enter Description" />
+                  <Button onAction="#handleAddAction" layoutX="237.0" layoutY="363.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="113.0" text="Add instrument" />
                </children>
             </AnchorPane>
         </items>

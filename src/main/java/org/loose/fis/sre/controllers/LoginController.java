@@ -16,8 +16,14 @@ import java.io.IOException;
 
 public class LoginController {
 
+
     @FXML
     private PasswordField passwordField;
+
+    public TextField getUsernameField() {
+        return usernameField;
+    }
+
     @FXML
     private TextField usernameField;
 
@@ -46,6 +52,7 @@ public class LoginController {
         }else {
             String username = usernameField.getText();
             String password = passwordField.getText();
+            SellerController.setInstrSeller(usernameField);
             String encryptedPass = UserService.encodePassword(username, password);
 
             if (UserService.checkAccountInformation(username, encryptedPass) == 1)
@@ -63,7 +70,7 @@ public class LoginController {
     public void handleLoginAction(ActionEvent event) throws Exception {
         this.root = (Parent)FXMLLoader.load(getClass().getClassLoader().getResource("register.fxml"));
         this.stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(this.root, 300,275);
+        Scene scene = new Scene(this.root);
         this.stage.setTitle("Registration");
         this.stage.setScene(scene);
         this.stage.show();

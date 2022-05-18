@@ -14,11 +14,11 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="436.0" prefWidth="167.0" style="-fx-background-color: beige;">
                <children>
-                  <Button layoutX="19.0" layoutY="14.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="131.0" style="-fx-background-color: green;" text="HOME" textFill="#ffecec" />
-                  <Button layoutX="20.0" layoutY="90.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="131.0" style="-fx-background-color: green;" text="Sell an instrument" textFill="WHITE" />
+                  <Button fx:id="Home" onAction="#gotoPages" layoutX="19.0" layoutY="14.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="131.0" style="-fx-background-color: green;" text="HOME" textFill="#ffecec" />
+                  <Button fx:id="Sell" onAction="#gotoPages" layoutX="20.0" layoutY="90.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="131.0" style="-fx-background-color: green;" text="Sell an instrument" textFill="WHITE" />
                   <Button fx:id="SignOutSeller" layoutX="56.0" layoutY="504.0" mnemonicParsing="false" onAction="#SignOut" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: red pink;" text="Log out" textFill="#fbdddd" />
-                  <Button layoutX="19.0" layoutY="341.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="131.0" style="-fx-background-color: green;" text="Selling history" textFill="#ffecec" />
-                  <Button layoutX="20.0" layoutY="253.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="131.0" style="-fx-background-color: green;" text="My reviews" textFill="#ffecec" />
+                  <Button fx:id="History" onAction="#gotoPages" layoutX="19.0" layoutY="341.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="131.0" style="-fx-background-color: green;" text="Selling history" textFill="#ffecec" />
+                  <Button fx:id="Review" onAction="#gotoPages" layoutX="20.0" layoutY="253.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="131.0" style="-fx-background-color: green;" text="My reviews" textFill="#ffecec" />
                   <Button layoutX="20.0" layoutY="172.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="131.0" style="-fx-background-color: green;" text="Delete an instrument" textFill="#ffecec" />
                   <Button layoutX="19.0" layoutY="423.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="131.0" style="-fx-background-color: green;" text="My instruments" textFill="#ffecec" />
                </children>
@@ -32,8 +32,8 @@
                   </ImageView>
                   <Text layoutX="21.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 33;" text="Enter the name of the instrument you whish to remove from the list" textAlignment="CENTER" wrappingWidth="600.9101715087891" />
                   <Text layoutX="123.0" layoutY="381.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name :" />
-                  <TextField layoutX="161.0" layoutY="364.0" prefHeight="25.0" prefWidth="319.0" />
-                  <Button layoutX="247.0" layoutY="429.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="147.0" text="Delete instrument" />
+                  <TextField fx:id="deleteName" layoutX="161.0" layoutY="364.0" prefHeight="25.0" prefWidth="319.0" promptText="Enter Name" />
+                  <Button onAction="#handleDeleteAction" layoutX="247.0" layoutY="429.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="147.0" text="Delete instrument" />
                </children>
             </AnchorPane>
         </items>
