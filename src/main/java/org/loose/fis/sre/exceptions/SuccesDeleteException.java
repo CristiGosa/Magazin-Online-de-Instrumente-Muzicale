@@ -6,14 +6,14 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
 
-public class AddSuccesException {
+public class SuccesDeleteException {
 
-    public static void displayInvalid(){
+    public static void displayValid(){
         Stage window = new Stage();
         Parent root = null;
 
         try {
-            root = FXMLLoader.load(AddException.class.getClassLoader().getResource("AddInstrument.fxml"));
+            root = FXMLLoader.load(AddException.class.getClassLoader().getResource("SuccessfulDelete.fxml"));
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -23,4 +23,19 @@ public class AddException {
         window.showAndWait();
     }
 
+    public static void displayValid(){
+        Stage window = new Stage();
+        Parent root = null;
+
+        try {
+            root = FXMLLoader.load(AddException.class.getClassLoader().getResource("AddInstrument.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Scene scene = new Scene(root);
+        window.setScene(scene);
+        window.showAndWait();
+    }
+
 }

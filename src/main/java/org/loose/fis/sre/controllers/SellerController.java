@@ -11,9 +11,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
-import org.loose.fis.sre.exceptions.AddException;
-import org.loose.fis.sre.exceptions.AddSuccesException;
-import org.loose.fis.sre.exceptions.UsernameAlreadyExistsException;
+import org.loose.fis.sre.exceptions.*;
 import org.loose.fis.sre.model.Instrument;
 import org.loose.fis.sre.services.InstrService;
 import org.loose.fis.sre.services.UserService;
@@ -32,6 +30,8 @@ public class SellerController {
     private TextArea InstrDescr;
     @FXML
     private TextField InstrPrice;
+    @FXML
+    private TextField deleteName;
 
     public static void setInstrSeller(TextField instrSeller) {
         InstrSeller = instrSeller;
@@ -47,22 +47,30 @@ public class SellerController {
     private Parent root;
 
     public void handleAddAction() {
-
-        Instrument i = new Instrument();
+        //Instrument i = new Instrument();
         InstrBuyer ="none";
-        if((InstrName.getText().equals("") && InstrCateg.getText().equals("") && InstrDescr.getText().equals("") && InstrSeller.getText().equals("") && InstrBuyer == "") || (InstrName.getText().equals(""))){
+        if(InstrName.getText().equals("") || InstrCateg.getText().equals("") || InstrDescr.getText().equals("") || InstrSeller.getText().equals("") || InstrBuyer == "" ){
             AddException.displayInvalid();
             return;
         }
         else try {
-
             InstrService.addInstr(InstrName.getText(), InstrCateg.getText(), InstrDescr.getText(), InstrPrice.getText(), InstrBuyer, InstrSeller.getText());
-            AddSuccesException.displayInvalid();
+            AddException.displayValid();
         } catch (UsernameAlreadyExistsException e) {
             AddException.displayInvalid();
         }
-
-
+    }
+    public void handleDeleteAction() {
+        if(deleteName.getText().equals("")){
+            AddException.displayInvalid();
+            return;
+        }
+        else try {
+            InstrService.deleteInstr(deleteName.getText());
+            SuccesDeleteException.displayValid();
+        } catch (UsernameNotExistsException e) {
+            AddException.displayInvalid();
+        }
     }
 
     public void gotoPages(ActionEvent event)throws Exception{
@@ -114,6 +122,7 @@ public class SellerController {
         try {
             root = FXMLLoader.load(BuyerController.class.getClassLoader().getResource("SellerHomePage.fxml"));
             Scene scene = new Scene(root);
+            window.setTitle("Home Page");
             window.setScene(scene);
             window.show();
         } catch (IOException e) {
