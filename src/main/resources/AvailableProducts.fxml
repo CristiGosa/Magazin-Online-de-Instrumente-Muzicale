@@ -23,13 +23,13 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <TableView layoutX="-2.0" layoutY="44.0" prefHeight="506.0" prefWidth="572.0" style="-fx-background-color: light;">
+                  <TableView fx:id="Table" layoutX="-2.0" layoutY="44.0" prefHeight="506.0" prefWidth="572.0" style="-fx-background-color: light;">
                     <columns>
-                      <TableColumn prefWidth="124.00001788139343" text="Name" />
-                      <TableColumn prefWidth="88.0000228881836" text="Category" />
-                        <TableColumn prefWidth="91.33329772949219" text="Price" />
-                        <TableColumn prefWidth="81.33331298828125" text="SellerName" />
-                        <TableColumn prefWidth="185.99996948242188" text="Description" />
+                      <TableColumn fx:id="TableName" prefWidth="124.00001788139343" text="Name" />
+                      <TableColumn fx:id="TableCategory" prefWidth="88.0000228881836" text="Category" />
+                        <TableColumn fx:id="TablePrice" prefWidth="91.33329772949219" text="Price" />
+                        <TableColumn fx:id="TableSeller" prefWidth="81.33331298828125" text="SellerName" />
+                        <TableColumn fx:id="TableDescr" prefWidth="185.99996948242188" text="Description" />
                     </columns>
                   </TableView>
                   <TextField alignment="CENTER" layoutX="1.0" layoutY="-1.0" prefHeight="47.0" prefWidth="572.0" style="-fx-background-color: orange; -fx-font-style: italic;" text="Products available to buy : " />

@@ -49,7 +49,7 @@ public class LoginController {
         //Main m = new Main();
         if(usernameField.getText().isEmpty() || passwordField.getText().isEmpty() ) {
             registrationMess.setText("Complete all fields!");
-        }else {
+        }else{
             String username = usernameField.getText();
             String password = passwordField.getText();
             SellerController.setInstrSeller(usernameField);
