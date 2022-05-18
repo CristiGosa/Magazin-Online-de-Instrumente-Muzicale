@@ -70,7 +70,7 @@ public class LoginController {
     public void handleLoginAction(ActionEvent event) throws Exception {
         this.root = (Parent)FXMLLoader.load(getClass().getClassLoader().getResource("register.fxml"));
         this.stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(this.root, 300,275);
+        Scene scene = new Scene(this.root);
         this.stage.setTitle("Registration");
         this.stage.setScene(scene);
         this.stage.show();

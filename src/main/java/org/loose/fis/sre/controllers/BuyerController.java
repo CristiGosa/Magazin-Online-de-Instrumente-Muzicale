@@ -1,17 +1,40 @@
 package org.loose.fis.sre.controllers;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import org.loose.fis.sre.model.Instrument;
+import org.loose.fis.sre.services.InstrService;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
 
-public class BuyerController {
+public class BuyerController implements Initializable {
+
+
+    @FXML
+    private TableView<Instrument> Table = new TableView<>();
+    @FXML
+    private TableColumn<Instrument, String> TableName;
+
+    @FXML
+    private TableColumn<Instrument, String> TableAdress;
+
+    @FXML
+    private TableColumn<Instrument, String> TableFloors;
 
     private Parent root;
     private Stage stage;
@@ -20,7 +43,23 @@ public class BuyerController {
     @FXML
     private Button AvailableProducts, Buy, HomePage, History, Review;
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        TableName.setCellValueFactory(new PropertyValueFactory<>("Name"));
+        TableAdress.setCellValueFactory(new PropertyValueFactory<>("Adress"));
+        TableFloors.setCellValueFactory(new PropertyValueFactory<>("Floors"));
+        Table.setItems(getInstr());
+    }
+    private ObservableList<Instrument> instrumente = FXCollections.observableArrayList();
+    private ArrayList<Instrument> list = new ArrayList<>();
 
+    private ObservableList<Instrument> getInstr()  {
+        for (Instrument in : InstrService.GetRepository().find())
+            list.add(in);
+
+        instrumente.addAll(list);
+        return instrumente;
+    }
     public void gotoPages(ActionEvent event)throws Exception{
         if(event.getSource() == AvailableProducts){
             this.root = (Parent)FXMLLoader.load(getClass().getClassLoader().getResource("AvailableProducts.fxml"));

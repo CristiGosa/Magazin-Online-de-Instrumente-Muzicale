@@ -47,18 +47,28 @@ public class SellerController {
     private Parent root;
 
     public void handleAddAction() {
-        //Instrument i = new Instrument();
+        Instrument i = new Instrument();
         InstrBuyer ="none";
         if(InstrName.getText().equals("") || InstrCateg.getText().equals("") || InstrDescr.getText().equals("") || InstrSeller.getText().equals("") || InstrBuyer == "" ){
             AddException.displayInvalid();
             return;
         }
         else try {
+            i.setName(InstrName.getText());
+            i.setCategory(InstrCateg.getText());
+            i.setPrice(InstrPrice.getText());
+            i.setBuyer(InstrBuyer);
+            i.setSeller(InstrSeller.getText());
             InstrService.addInstr(InstrName.getText(), InstrCateg.getText(), InstrDescr.getText(), InstrPrice.getText(), InstrBuyer, InstrSeller.getText());
+            Table.getItems().add(i);
             AddException.displayValid();
         } catch (UsernameAlreadyExistsException e) {
             AddException.displayInvalid();
         }
+        InstrName.clear();
+        InstrPrice.clear();
+        InstrDescr.clear();
+        InstrCateg.clear();
     }
     public void handleDeleteAction() {
         if(deleteName.getText().equals("")){
