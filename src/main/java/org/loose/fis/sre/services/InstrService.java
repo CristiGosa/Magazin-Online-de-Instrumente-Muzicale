@@ -19,9 +19,9 @@ public class InstrService {
         InstrRepository = database.getRepository(Instrument.class);
     }
 
-    public static void addInstr(String name, String category, String descr, String price) throws UsernameAlreadyExistsException {
+    public static void addInstr(String name, String category, String descr, String price, String buyer, String seller) throws UsernameAlreadyExistsException {
         checkInstrDoesNotAlreadyExist(name);
-        InstrRepository.insert(new Instrument(name, category, descr, price));
+        InstrRepository.insert(new Instrument(name, category, descr, price, buyer, seller));
     }
 
     public static void checkInstrDoesNotAlreadyExist(String username) throws UsernameAlreadyExistsException {

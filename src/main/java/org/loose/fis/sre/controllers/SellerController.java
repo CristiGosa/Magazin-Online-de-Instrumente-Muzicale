@@ -32,6 +32,15 @@ public class SellerController {
     private TextArea InstrDescr;
     @FXML
     private TextField InstrPrice;
+
+    public static void setInstrSeller(TextField instrSeller) {
+        InstrSeller = instrSeller;
+    }
+
+    @FXML
+    private static TextField InstrSeller;
+    @FXML
+    private String InstrBuyer;
     @FXML
     private Button SignOutSeller, Home, Sell, Delete, Review, History;
     private Stage stage;
@@ -40,12 +49,14 @@ public class SellerController {
     public void handleAddAction() {
 
         Instrument i = new Instrument();
-        if((InstrName.getText().equals("") && InstrCateg.getText().equals("") && InstrDescr.getText().equals("") && InstrPrice.getText().equals("")) || (InstrName.getText().equals(""))){
+        InstrBuyer ="none";
+        if((InstrName.getText().equals("") && InstrCateg.getText().equals("") && InstrDescr.getText().equals("") && InstrSeller.getText().equals("") && InstrBuyer == "") || (InstrName.getText().equals(""))){
             AddException.displayInvalid();
             return;
         }
         else try {
-            InstrService.addInstr(InstrName.getText(), InstrCateg.getText(), InstrDescr.getText(), InstrPrice.getText());
+
+            InstrService.addInstr(InstrName.getText(), InstrCateg.getText(), InstrDescr.getText(), InstrPrice.getText(), InstrBuyer, InstrSeller.getText());
             AddSuccesException.displayInvalid();
         } catch (UsernameAlreadyExistsException e) {
             AddException.displayInvalid();

@@ -16,8 +16,14 @@ import java.io.IOException;
 
 public class LoginController {
 
+
     @FXML
     private PasswordField passwordField;
+
+    public TextField getUsernameField() {
+        return usernameField;
+    }
+
     @FXML
     private TextField usernameField;
 
@@ -46,6 +52,7 @@ public class LoginController {
         }else {
             String username = usernameField.getText();
             String password = passwordField.getText();
+            SellerController.setInstrSeller(usernameField);
             String encryptedPass = UserService.encodePassword(username, password);
 
             if (UserService.checkAccountInformation(username, encryptedPass) == 1)
