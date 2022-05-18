@@ -69,6 +69,7 @@ public class BuyerController {
         try {
             root = FXMLLoader.load(BuyerController.class.getClassLoader().getResource("BuyerHomePage.fxml"));
             Scene scene = new Scene(root);
+            window.setTitle("Home Page");
             window.setScene(scene);
             window.show();
         } catch (IOException e) {

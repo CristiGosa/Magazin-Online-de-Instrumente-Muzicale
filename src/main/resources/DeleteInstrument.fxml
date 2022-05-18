@@ -31,8 +31,8 @@
                   </ImageView>
                   <Text layoutX="21.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 33;" text="Enter the name of the instrument you whish to remove from the list" textAlignment="CENTER" wrappingWidth="600.9101715087891" />
                   <Text layoutX="123.0" layoutY="381.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name :" />
-                  <TextField layoutX="161.0" layoutY="364.0" prefHeight="25.0" prefWidth="319.0" />
-                  <Button layoutX="247.0" layoutY="429.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="147.0" text="Delete instrument" />
+                  <TextField fx:id="deleteName" layoutX="161.0" layoutY="364.0" prefHeight="25.0" prefWidth="319.0" promptText="Enter Name" />
+                  <Button onAction="#handleDeleteAction" layoutX="247.0" layoutY="429.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="147.0" text="Delete instrument" />
                </children>
             </AnchorPane>
         </items>
