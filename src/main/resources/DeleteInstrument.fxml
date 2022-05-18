@@ -20,6 +20,7 @@
                   <Button fx:id="History" onAction="#gotoPages" layoutX="19.0" layoutY="341.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="131.0" style="-fx-background-color: green;" text="Selling history" textFill="#ffecec" />
                   <Button fx:id="Review" onAction="#gotoPages" layoutX="20.0" layoutY="253.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="131.0" style="-fx-background-color: green;" text="My reviews" textFill="#ffecec" />
                   <Button layoutX="20.0" layoutY="172.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="131.0" style="-fx-background-color: green;" text="Delete an instrument" textFill="#ffecec" />
+                  <Button layoutX="19.0" layoutY="423.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="131.0" style="-fx-background-color: green;" text="My instruments" textFill="#ffecec" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="551.0" prefWidth="570.0">

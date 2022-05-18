@@ -13,24 +13,26 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="436.0" prefWidth="167.0" style="-fx-background-color: beige;">
                <children>
-                  <Button fx:id="Home" onAction="#gotoPages" layoutX="19.0" layoutY="14.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="131.0" style="-fx-background-color: green;" text="HOME" textFill="#ffecec" />
-                  <Button fx:id="Sell" onAction="#gotoPages" layoutX="20.0" layoutY="90.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="131.0" style="-fx-background-color: green;" text="Sell an instrument" textFill="WHITE" />
+                  <Button layoutX="19.0" layoutY="14.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="131.0" style="-fx-background-color: green;" text="HOME" textFill="#ffecec" />
+                  <Button fx:id="Sell" layoutX="20.0" layoutY="90.0" mnemonicParsing="false" onAction="#gotoPages" prefHeight="60.0" prefWidth="131.0" style="-fx-background-color: green;" text="Sell an instrument" textFill="WHITE" />
                   <Button fx:id="SignOutSeller" layoutX="56.0" layoutY="504.0" mnemonicParsing="false" onAction="#SignOut" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: red pink;" text="Log out" textFill="#fbdddd" />
-                  <Button fx:id="History" onAction="#gotoPages" layoutX="19.0" layoutY="341.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="131.0" style="-fx-background-color: green;" text="Selling history" textFill="#ffecec" />
+                  <Button layoutX="19.0" layoutY="341.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="131.0" style="-fx-background-color: green;" text="Selling history" textFill="#ffecec" />
                   <Button layoutX="20.0" layoutY="253.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="131.0" style="-fx-background-color: green;" text="My reviews" textFill="#ffecec" />
+                  <Button layoutX="20.0" layoutY="172.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="131.0" style="-fx-background-color: green;" text="Delete an instrument" textFill="#ffecec" />
                   <Button layoutX="19.0" layoutY="423.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="131.0" style="-fx-background-color: green;" text="My instruments" textFill="#ffecec" />
-                  <Button fx:id="Delete" onAction="#gotoPages" layoutX="20.0" layoutY="172.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="131.0" style="-fx-background-color: green;" text="Delete an instrument" textFill="#ffecec" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="551.0" prefWidth="570.0" style="-fx-background-color: beige;">
                <children>
-                  <Text fill="#a84747" layoutX="29.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 33; -fx-font-style: italic;" text="See the reviews from your recent buyers :" textAlignment="CENTER" />
-                  <TableView layoutX="-4.0" layoutY="72.0" prefHeight="480.0" prefWidth="649.0" style="-fx-background-color: opal;">
+                  <TableView layoutX="1.0" layoutY="44.0" prefHeight="506.0" prefWidth="642.0" style="-fx-background-color: light;">
                     <columns>
-                      <TableColumn prefWidth="172.66669726371765" text="BuyerName" />
-                      <TableColumn minWidth="0.0" prefWidth="475.3332977294922" text="Review" />
+                      <TableColumn prefWidth="146.00004076957703" text="Name" />
+                      <TableColumn prefWidth="129.99998474121094" text="Category" />
+                        <TableColumn prefWidth="93.33328247070312" text="Price" />
+                        <TableColumn prefWidth="276.6666564941406" text="Description" />
                     </columns>
                   </TableView>
+                  <Text layoutX="116.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 25;" text="Your instruments listed for selling :" />
                </children>
             </AnchorPane>
         </items>
