@@ -6,18 +6,53 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
+import org.loose.fis.sre.exceptions.AddException;
+import org.loose.fis.sre.exceptions.AddSuccesException;
+import org.loose.fis.sre.exceptions.UsernameAlreadyExistsException;
+import org.loose.fis.sre.model.Instrument;
+import org.loose.fis.sre.services.InstrService;
+import org.loose.fis.sre.services.UserService;
 
 import java.awt.*;
 import java.io.IOException;
 
 public class SellerController {
-
+    @FXML
+    private TableView<Instrument> Table = new TableView<>();
+    @FXML
+    private TextField InstrName;
+    @FXML
+    private TextField InstrCateg;
+    @FXML
+    private TextArea InstrDescr;
+    @FXML
+    private TextField InstrPrice;
     @FXML
     private Button SignOutSeller, Home, Sell, Delete, Review, History;
     private Stage stage;
     private Parent root;
+
+    public void handleAddAction() {
+
+        Instrument i = new Instrument();
+        if((InstrName.getText().equals("") && InstrCateg.getText().equals("") && InstrDescr.getText().equals("") && InstrPrice.getText().equals("")) || (InstrName.getText().equals(""))){
+            AddException.displayInvalid();
+            return;
+        }
+        else try {
+            InstrService.addInstr(InstrName.getText(), InstrCateg.getText(), InstrDescr.getText(), InstrPrice.getText());
+            AddSuccesException.displayInvalid();
+        } catch (UsernameAlreadyExistsException e) {
+            AddException.displayInvalid();
+        }
+
+
+    }
 
     public void gotoPages(ActionEvent event)throws Exception{
         if(event.getSource() == Home){
