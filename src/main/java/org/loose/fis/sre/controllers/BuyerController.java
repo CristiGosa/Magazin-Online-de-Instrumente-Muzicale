@@ -22,21 +22,21 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class BuyerController {
+public class BuyerController implements Initializable {
 
 
     @FXML
-    private TableView<Instrument> Table;
+    private TableView<Instrument> Table = new TableView<>();
     @FXML
-    private TableColumn<Instrument, String> TableName;
+    private TableColumn<Instrument, String> TableName = new TableColumn<>();
     @FXML
-    private TableColumn<Instrument, String> TableCategory;
+    private TableColumn<Instrument, String> TableCategory = new TableColumn<>();
     @FXML
-    private TableColumn<Instrument, String> TablePrice;
+    private TableColumn<Instrument, String> TablePrice = new TableColumn<>();
     @FXML
-    private TableColumn<Instrument, String> TableSeller;
+    private TableColumn<Instrument, String> TableSeller = new TableColumn<>();
     @FXML
-    private TableColumn<Instrument, String> TableDescr;
+    private TableColumn<Instrument, String> TableDescr = new TableColumn<>();
 
     private Parent root;
     private Stage stage;
@@ -44,20 +44,29 @@ public class BuyerController {
     private Button SignOutBuyer;
     @FXML
     private Button AvailableProducts, Buy, HomePage, History, Review;
-    private ObservableList<Instrument> instrumente = FXCollections.observableArrayList(
-            new Instrument("Cipi", "Guitar", "Good guitar", "1000", "a buyer", "a seller")
-    );
     //private ArrayList<Instrument> list = new ArrayList<>();
+    ObservableList<Instrument> instr = FXCollections.observableArrayList();
+    private ArrayList<Instrument> list = new ArrayList<>();
 
- /*   @Override
+    @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         TableName.setCellValueFactory(new PropertyValueFactory<Instrument, String>("name"));
         TableCategory.setCellValueFactory(new PropertyValueFactory<Instrument, String>("category"));
         TablePrice.setCellValueFactory(new PropertyValueFactory<Instrument, String>("price"));
         TableSeller.setCellValueFactory(new PropertyValueFactory<Instrument, String>("seller"));
         TableDescr.setCellValueFactory(new PropertyValueFactory<Instrument, String>("descr"));
-        Table.setItems(instrumente);
-    } */
+        Table.setItems(getInstruments());
+    }
+
+    private ObservableList<Instrument> getInstruments()  {
+        for (Instrument in : InstrService.GetRepository().find())
+            if(in.getBuyer().equals("none")) {
+                list.add(in);
+            }
+
+        instr.addAll(list);
+        return instr;
+    }
 
 
     public void gotoPages(ActionEvent event)throws Exception{

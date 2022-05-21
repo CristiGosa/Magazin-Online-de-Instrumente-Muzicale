@@ -17,9 +17,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import org.loose.fis.sre.exceptions.*;
-import org.loose.fis.sre.model.Inst;
 import org.loose.fis.sre.model.Instrument;
-import org.loose.fis.sre.model.User;
 import org.loose.fis.sre.services.InstrService;
 
 import java.io.IOException;

@@ -3,7 +3,7 @@ package org.loose.fis.sre.model;
 import org.dizitart.no2.objects.Id;
 import java.util.Objects;
 
-public class Instrument extends Inst {
+public class Instrument {
     @Id
     private String name;
     private String category;
