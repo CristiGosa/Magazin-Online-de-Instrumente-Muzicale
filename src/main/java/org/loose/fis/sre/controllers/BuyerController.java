@@ -39,6 +39,18 @@ public class BuyerController implements Initializable {
     private TableColumn<Instrument, String> TableSeller = new TableColumn<>();
     @FXML
     private TableColumn<Instrument, String> TableDescr = new TableColumn<>();
+    @FXML
+    private TableView<Instrument> Table2 = new TableView<>();
+    @FXML
+    private TableColumn<Instrument, String> Hname = new TableColumn<>();
+    @FXML
+    private TableColumn<Instrument, String> Hcat = new TableColumn<>();
+    @FXML
+    private TableColumn<Instrument, String> Hprice = new TableColumn<>();
+    @FXML
+    private TableColumn<Instrument, String> Hseller = new TableColumn<>();
+    @FXML
+    private TableColumn<Instrument, String> Hdescr = new TableColumn<>();
 
     private Parent root;
     private Stage stage;
@@ -49,6 +61,8 @@ public class BuyerController implements Initializable {
     //private ArrayList<Instrument> list = new ArrayList<>();
     ObservableList<Instrument> instr = FXCollections.observableArrayList();
     private ArrayList<Instrument> list = new ArrayList<>();
+    ObservableList<Instrument> Hinstr = FXCollections.observableArrayList();
+    private ArrayList<Instrument> Hlist = new ArrayList<>();
     @FXML
     private TextField InstrTobuy;
 
@@ -60,6 +74,13 @@ public class BuyerController implements Initializable {
         TableSeller.setCellValueFactory(new PropertyValueFactory<Instrument, String>("seller"));
         TableDescr.setCellValueFactory(new PropertyValueFactory<Instrument, String>("descr"));
         Table.setItems(getInstruments());
+
+        Hname.setCellValueFactory(new PropertyValueFactory<Instrument, String>("name"));
+        Hcat.setCellValueFactory(new PropertyValueFactory<Instrument, String>("category"));
+        Hprice.setCellValueFactory(new PropertyValueFactory<Instrument, String>("price"));
+        Hseller.setCellValueFactory(new PropertyValueFactory<Instrument, String>("seller"));
+        Hdescr.setCellValueFactory(new PropertyValueFactory<Instrument, String>("descr"));
+        Table2.setItems(getHistory());
     }
 
     private ObservableList<Instrument> getInstruments()  {
@@ -70,6 +91,15 @@ public class BuyerController implements Initializable {
 
         instr.addAll(list);
         return instr;
+    }
+    private ObservableList<Instrument> getHistory()  {
+        for (Instrument in : InstrService.GetRepository().find())
+            if(in.getBuyer().equals(LoginController.getDenBuyer())) {
+                Hlist.add(in);
+            }
+
+        Hinstr.addAll(Hlist);
+        return Hinstr;
     }
     public void handleBuyAction() {
         if(InstrTobuy.getText().equals("")){

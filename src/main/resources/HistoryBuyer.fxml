@@ -23,13 +23,13 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <TableView layoutX="-2.0" layoutY="44.0" prefHeight="506.0" prefWidth="572.0" style="-fx-background-color: beige;">
+                  <TableView fx:id="Table2" layoutX="-2.0" layoutY="44.0" prefHeight="506.0" prefWidth="572.0" style="-fx-background-color: beige;">
                     <columns>
-                      <TableColumn prefWidth="117.33336138725281" text="Name" />
-                      <TableColumn prefWidth="95.99999237060547" text="Category" />
-                        <TableColumn prefWidth="91.33329772949219" text="Price" />
-                        <TableColumn prefWidth="81.33331298828125" text="SellerName" />
-                        <TableColumn prefWidth="185.99996948242188" text="Description" />
+                      <TableColumn fx:id="Hname" prefWidth="117.33336138725281" text="Name" />
+                      <TableColumn fx:id="Hcat" prefWidth="95.99999237060547" text="Category" />
+                        <TableColumn fx:id="Hprice" prefWidth="91.33329772949219" text="Price" />
+                        <TableColumn fx:id="Hseller" prefWidth="81.33331298828125" text="SellerName" />
+                        <TableColumn fx:id="Hdescr" prefWidth="185.99996948242188" text="Description" />
                     </columns>
                   </TableView>
                   <TextField alignment="CENTER" layoutX="1.0" layoutY="-1.0" prefHeight="47.0" prefWidth="572.0" style="-fx-background-color: pink; -fx-font-style: italic;" text="Your history of purchases : " />
