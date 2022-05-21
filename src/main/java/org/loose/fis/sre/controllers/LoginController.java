@@ -30,11 +30,17 @@ public class LoginController {
     @FXML
     private Text registrationMess;
 
-    public static String getDenUser() {
-        return denUser;
+    public static String getDenSeller() {
+        return denSeller;
     }
 
-    private static String denUser;
+    private static String denSeller;
+
+    public static String getDenBuyer() {
+        return denBuyer;
+    }
+
+    private static String denBuyer;
 
 
     public void Login(ActionEvent event) throws Exception{
@@ -51,19 +57,24 @@ public class LoginController {
 
     private void checkLogin() throws IOException {
         //Main m = new Main();
+        denBuyer = usernameField.getText();
         if(usernameField.getText().isEmpty() || passwordField.getText().isEmpty() ) {
             registrationMess.setText("Complete all fields!");
         }else{
             String username = usernameField.getText();
-            denUser = usernameField.getText();
+
             String password = passwordField.getText();
             SellerController.setInstrSeller(usernameField);
             String encryptedPass = UserService.encodePassword(username, password);
 
-            if (UserService.checkAccountInformation(username, encryptedPass) == 1)
+            if (UserService.checkAccountInformation(username, encryptedPass) == 1) {
+
                 BuyerController.display();
-            else if (UserService.checkAccountInformation(username, encryptedPass) == 2)
+            }
+            else if (UserService.checkAccountInformation(username, encryptedPass) == 2) {
+                denSeller = usernameField.getText();
                 SellerController.display();
+            }
             else LoginExceptions.display();
 
         }

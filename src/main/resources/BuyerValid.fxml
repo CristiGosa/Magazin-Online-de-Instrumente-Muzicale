@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.loose.fis.sre.exceptions.AddException" >
+    <children>
+        <Pane prefHeight="69.0" prefWidth="235.0">
+            <children>
+                <Text layoutX="84.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20;" text="Instrument Bought!" wrappingWidth="136.64983558654785" />
+                <ImageView fitHeight="49.0" fitWidth="57.0" layoutX="14.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@images/images.png" />
+                    </image></ImageView>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>

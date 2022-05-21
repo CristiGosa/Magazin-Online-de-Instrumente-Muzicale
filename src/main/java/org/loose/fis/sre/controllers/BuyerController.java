@@ -12,8 +12,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import org.loose.fis.sre.exceptions.*;
 import org.loose.fis.sre.model.Instrument;
 import org.loose.fis.sre.services.InstrService;
 
@@ -47,6 +49,8 @@ public class BuyerController implements Initializable {
     //private ArrayList<Instrument> list = new ArrayList<>();
     ObservableList<Instrument> instr = FXCollections.observableArrayList();
     private ArrayList<Instrument> list = new ArrayList<>();
+    @FXML
+    private TextField InstrTobuy;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -66,6 +70,30 @@ public class BuyerController implements Initializable {
 
         instr.addAll(list);
         return instr;
+    }
+    public void handleBuyAction() {
+        if(InstrTobuy.getText().equals("")){
+            BuyerExceptions.displayInvalid();
+            return;
+        }
+        else {
+            try {
+                switch (InstrService.setBuyer(InstrTobuy.getText(), LoginController.getDenBuyer())) {
+                    case 1:
+                        BuyerExceptions.alreadyBought();
+                        break;
+                    case 2:
+                        BuyerExceptions.displayValid();
+                        break;
+                    default:
+                        break;
+
+                }
+            } catch (UsernameNotExistsException e) {
+                BuyerExceptions.displayInvalid();
+            }
+        }
+
     }
 
 

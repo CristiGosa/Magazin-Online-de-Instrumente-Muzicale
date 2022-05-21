@@ -23,9 +23,9 @@
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: light brown;">
                <children>
                   <Text fill="#173aff" layoutX="40.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 33; -fx-font-family: arial black;" text="Select the name of the instrument you're wishing to buy:" textAlignment="CENTER" wrappingWidth="491.9999287923177" />
-                  <TextField layoutX="112.0" layoutY="166.0" prefHeight="16.0" prefWidth="379.0" />
+                  <TextField fx:id="InstrTobuy" layoutX="112.0" layoutY="166.0" prefHeight="16.0" prefWidth="379.0" promptText="Enter Instrument Name" />
                   <Text layoutX="69.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" wrappingWidth="43.46996307373047" />
-                  <Button layoutX="236.0" layoutY="222.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="99.0" text="BUY" />
+                  <Button onAction="#handleBuyAction" layoutX="236.0" layoutY="222.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="99.0" text="BUY" />
                </children>
             </AnchorPane>
         </items>
