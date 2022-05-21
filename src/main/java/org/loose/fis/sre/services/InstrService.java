@@ -48,6 +48,24 @@ public class InstrService {
             }
         }InstrRepository.remove(ObjectFilters.eq("name",numeP));
     }
+    public static int setBuyer(String numeInstr, String buyerName) throws UsernameNotExistsException {
+        checkInstrDoesNotExist(numeInstr);
+        String numeP = new String();
+        for(Instrument instr : InstrRepository.find()){
+            if(instr.getName().equals(numeInstr)){
+                if(instr.getBuyer().equals(buyerName)) {
+                    return 1;
+                } else {
+                    numeP = numeInstr;
+                    InstrRepository.remove(ObjectFilters.eq("name", numeP));
+                    instr.setBuyer(buyerName);
+                    InstrRepository.insert(instr);
+                    return 2;
+                }
+            }
+        }
+        return 0;
+    }
 
     public static ObjectRepository<Instrument> GetRepository() {
         return InstrRepository;

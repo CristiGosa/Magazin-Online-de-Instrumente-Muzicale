@@ -81,7 +81,7 @@ public class SellerController implements Initializable {
     }
     private ObservableList<Instrument> getInstruments()  {
         for (Instrument in : InstrService.GetRepository().find())
-            if(in.getSeller().equals(LoginController.getDenUser())) {
+            if(in.getSeller().equals(LoginController.getDenSeller())) {
                 list.add(in);
             }
 
