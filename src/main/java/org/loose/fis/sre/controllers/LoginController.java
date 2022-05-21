@@ -19,21 +19,25 @@ public class LoginController {
 
     @FXML
     private PasswordField passwordField;
-
+    @FXML
+    private TextField usernameField;
     public TextField getUsernameField() {
         return usernameField;
     }
-
-    @FXML
-    private TextField usernameField;
 
     private Parent root;
     private Stage stage;
     @FXML
     private Text registrationMess;
 
+    public static String getDenUser() {
+        return denUser;
+    }
 
-    public void Login(ActionEvent event)throws Exception{
+    private static String denUser;
+
+
+    public void Login(ActionEvent event) throws Exception{
         checkLogin();
 
 
@@ -51,6 +55,7 @@ public class LoginController {
             registrationMess.setText("Complete all fields!");
         }else{
             String username = usernameField.getText();
+            denUser = usernameField.getText();
             String password = passwordField.getText();
             SellerController.setInstrSeller(usernameField);
             String encryptedPass = UserService.encodePassword(username, password);
