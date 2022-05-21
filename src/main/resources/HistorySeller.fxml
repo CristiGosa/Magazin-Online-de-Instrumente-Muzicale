@@ -24,12 +24,12 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="551.0" prefWidth="570.0">
                <children>
-                  <TableView layoutX="-4.0" layoutY="41.0" prefHeight="510.0" prefWidth="648.0" style="-fx-background-color: opal;">
+                  <TableView fx:id="Table2" layoutX="-4.0" layoutY="41.0" prefHeight="510.0" prefWidth="648.0" style="-fx-background-color: opal;">
                     <columns>
-                      <TableColumn prefWidth="225.33329272270203" text="Name" />
-                      <TableColumn prefWidth="99.33338928222656" text="Price" />
-                        <TableColumn prefWidth="126.66659545898438" text="Category" />
-                        <TableColumn minWidth="0.0" prefWidth="197.99990844726562" text="BuyerName" />
+                      <TableColumn fx:id="Hname" prefWidth="225.33329272270203" text="Name" />
+                      <TableColumn fx:id="Hprice" prefWidth="99.33338928222656" text="Price" />
+                        <TableColumn fx:id="Hcat" prefWidth="126.66659545898438" text="Category" />
+                        <TableColumn fx:id="Hbuyer" minWidth="0.0" prefWidth="197.99990844726562" text="BuyerName" />
                     </columns>
                   </TableView>
                   <TextField alignment="CENTER" layoutX="1.0" layoutY="-2.0" prefHeight="41.0" prefWidth="642.0" style="-fx-font-size: 22; -fx-background-color: light;" text="Your history of sold instruments :" />

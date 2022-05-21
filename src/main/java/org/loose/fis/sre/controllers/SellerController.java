@@ -27,17 +27,27 @@ import java.util.ResourceBundle;
 
 public class SellerController implements Initializable {
     @FXML
-    private TableColumn<Instrument, String> tableName = new TableColumn<>();
-    @FXML
-    private TableColumn<Instrument, String> tableCat = new TableColumn<>();;
-    @FXML
-    private TableColumn<Instrument, String> tablePrice = new TableColumn<>();;
-    @FXML
-    private TableColumn<Instrument, String> tableDesc = new TableColumn<>();;
-    @FXML
     private TableView<Instrument> Table = new TableView<>();
     @FXML
-    private TableView<Instrument> Table1 = new TableView<Instrument>();
+    private TableView<Instrument> Table1 = new TableView<>();
+    @FXML
+    private TableColumn<Instrument, String> tableName = new TableColumn<>();
+    @FXML
+    private TableColumn<Instrument, String> tableCat = new TableColumn<>();
+    @FXML
+    private TableColumn<Instrument, String> tablePrice = new TableColumn<>();
+    @FXML
+    private TableColumn<Instrument, String> tableDesc = new TableColumn<>();
+    @FXML
+    private TableView<Instrument> Table2 = new TableView<>();
+    @FXML
+    private TableColumn<Instrument, String> Hname = new TableColumn<>();
+    @FXML
+    private TableColumn<Instrument, String> Hprice = new TableColumn<>();
+    @FXML
+    private TableColumn<Instrument, String> Hcat = new TableColumn<>();
+    @FXML
+    private TableColumn<Instrument, String> Hbuyer = new TableColumn<>();
     @FXML
     private TextField InstrName;
     @FXML
@@ -64,6 +74,8 @@ public class SellerController implements Initializable {
 
     ObservableList<Instrument> instr = FXCollections.observableArrayList();
     private ArrayList<Instrument> list = new ArrayList<>();
+    ObservableList<Instrument> Hinstr = FXCollections.observableArrayList();
+    private ArrayList<Instrument> Hlist = new ArrayList<>();
 
 
     /**
@@ -77,16 +89,32 @@ public class SellerController implements Initializable {
         tablePrice.setCellValueFactory(new PropertyValueFactory<>("price"));
         tableDesc.setCellValueFactory(new PropertyValueFactory<>("descr"));
         Table1.setItems(getInstruments());
-        //Table1.getColumns().addAll(tableName, tableCat, tablePrice, tableDesc);
+
+        Hname.setCellValueFactory(new PropertyValueFactory<>("name"));
+        Hprice.setCellValueFactory(new PropertyValueFactory<>("price"));
+        Hcat.setCellValueFactory(new PropertyValueFactory<>("category"));
+        Hbuyer.setCellValueFactory(new PropertyValueFactory<>("buyer"));
+        Table2.setItems(getHistory());
+
     }
     private ObservableList<Instrument> getInstruments()  {
         for (Instrument in : InstrService.GetRepository().find())
-            if(in.getSeller().equals(LoginController.getDenSeller())) {
+            if(in.getSeller().equals(LoginController.getDenSeller()) && in.getBuyer().equals("none")) {
                 list.add(in);
             }
 
         instr.addAll(list);
         return instr;
+    }
+
+    private ObservableList<Instrument> getHistory()  {
+        for (Instrument in : InstrService.GetRepository().find())
+            if(in.getSeller().equals(LoginController.getDenSeller()) && !(in.getBuyer().equals("none"))) {
+                Hlist.add(in);
+            }
+
+        Hinstr.addAll(Hlist);
+        return Hinstr;
     }
 
     public void handleAddAction() {
