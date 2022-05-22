@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.loose.fis.sre.services.FileSystemService;
 import org.loose.fis.sre.services.InstrService;
+import org.loose.fis.sre.services.ReviewService;
 import org.loose.fis.sre.services.UserService;
 
 import java.io.IOException;
@@ -21,7 +22,8 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         initDirectory();
         UserService.initDatabase();
-        InstrService.initDatabaseInstr();
+        InstrService.initDatabase();
+        ReviewService.initDatabase();
 
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("register.fxml"));
         primaryStage.setTitle("Registration Example");
