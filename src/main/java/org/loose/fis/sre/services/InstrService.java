@@ -13,7 +13,7 @@ public class InstrService {
     private static ObjectRepository<Instrument> InstrRepository;   //repository-ul pentru Instrumente
     //private static ObjectRepository<Instrument> InstrRepository = InstrService.GetRepository();   //repository-ul pentru Instrumente
 
-    public static void initDatabaseInstr() {
+    public static void initDatabase() {
         Nitrite database = Nitrite.builder()
                 .filePath(getPathToFile("Instrumente.db").toFile())
                 .openOrCreate("test", "test");

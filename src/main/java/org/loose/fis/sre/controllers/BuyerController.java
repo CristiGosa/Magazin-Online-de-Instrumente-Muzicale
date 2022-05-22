@@ -9,15 +9,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import org.loose.fis.sre.exceptions.*;
 import org.loose.fis.sre.model.Instrument;
+import org.loose.fis.sre.model.Review;
 import org.loose.fis.sre.services.InstrService;
+import org.loose.fis.sre.services.ReviewService;
 
 import java.io.IOException;
 import java.net.URL;
@@ -65,6 +64,11 @@ public class BuyerController implements Initializable {
     private ArrayList<Instrument> Hlist = new ArrayList<>();
     @FXML
     private TextField InstrTobuy;
+    @FXML
+    private TextField Revseller;
+    @FXML
+    private TextArea Rtext;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -100,6 +104,25 @@ public class BuyerController implements Initializable {
 
         Hinstr.addAll(Hlist);
         return Hinstr;
+    }
+    public void handleReviewAction() throws UsernameAlreadyExistsException {
+        if(Revseller.getText().equals("") || Rtext.getText().equals("")){
+            ReviewExceptions.displayInvalid();
+            return;
+        }
+        else try {
+            ReviewService.addReview(getIndex(), Rtext.getText(), LoginController.getDenBuyer(), Revseller.getText());
+            ReviewExceptions.displayValid();
+        } catch (SellerNotExistsException e) {
+            ReviewExceptions.displayInvalid();
+        }
+    }
+    private int getIndex()  {
+        int count = 0;
+        for (Review rv : ReviewService.GetRepository().find())
+            count++;
+
+        return count;
     }
     public void handleBuyAction() {
         if(InstrTobuy.getText().equals("")){
