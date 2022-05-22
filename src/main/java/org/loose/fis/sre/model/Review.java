@@ -14,10 +14,11 @@ public class Review {
 
 
     public Review(int index, String text, String buyer, String seller){
+        this.index = index;
         this.text = text;
         this.buyer = buyer;
         this.seller = seller;
-        this.index = index;
+
     }
 
     public Review(){}
@@ -29,8 +30,7 @@ public class Review {
     public void setIndex(int index) {
         this.index = index;
     }
-
-    public String getName() {
+    public String getText() {
         return text;
     }
 
