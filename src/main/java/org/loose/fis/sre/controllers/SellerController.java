@@ -18,7 +18,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import org.loose.fis.sre.exceptions.*;
 import org.loose.fis.sre.model.Instrument;
+import org.loose.fis.sre.model.Review;
 import org.loose.fis.sre.services.InstrService;
+import org.loose.fis.sre.services.ReviewService;
 
 import java.io.IOException;
 import java.net.URL;
@@ -49,6 +51,12 @@ public class SellerController implements Initializable {
     @FXML
     private TableColumn<Instrument, String> Hbuyer = new TableColumn<>();
     @FXML
+    private TableView<Review> RevTable = new TableView<>();
+    @FXML
+    private TableColumn<Review, String> RevBuyer = new TableColumn<>();
+    @FXML
+    private TableColumn<Review, String> RevText = new TableColumn<>();
+    @FXML
     private TextField InstrName;
     @FXML
     private TextField InstrCateg;
@@ -76,6 +84,8 @@ public class SellerController implements Initializable {
     private ArrayList<Instrument> list = new ArrayList<>();
     ObservableList<Instrument> Hinstr = FXCollections.observableArrayList();
     private ArrayList<Instrument> Hlist = new ArrayList<>();
+    ObservableList<Review> Rev = FXCollections.observableArrayList();
+    private ArrayList<Review> Revlist = new ArrayList<>();
 
 
     /**
@@ -96,6 +106,10 @@ public class SellerController implements Initializable {
         Hbuyer.setCellValueFactory(new PropertyValueFactory<>("buyer"));
         Table2.setItems(getHistory());
 
+        RevBuyer.setCellValueFactory(new PropertyValueFactory<>("buyer"));
+        RevText.setCellValueFactory(new PropertyValueFactory<>("text"));
+        RevTable.setItems(getReviews());
+
     }
     private ObservableList<Instrument> getInstruments()  {
         for (Instrument in : InstrService.GetRepository().find())
@@ -115,6 +129,15 @@ public class SellerController implements Initializable {
 
         Hinstr.addAll(Hlist);
         return Hinstr;
+    }
+    private ObservableList<Review> getReviews()  {
+        for (Review rv : ReviewService.GetRepository().find())
+            if(rv.getSeller().equals(LoginController.getDenSeller())) {
+                Revlist.add(rv);
+            }
+
+        Rev.addAll(Revlist);
+        return Rev;
     }
 
     public void handleAddAction() {
