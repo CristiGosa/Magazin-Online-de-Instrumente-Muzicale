@@ -27,8 +27,6 @@ public class LoginController {
 
     private Parent root;
     private Stage stage;
-    @FXML
-    private Text registrationMess;
 
     public static String getDenSeller() {
         return denSeller;
@@ -59,7 +57,7 @@ public class LoginController {
         //Main m = new Main();
         denBuyer = usernameField.getText();
         if(usernameField.getText().isEmpty() || passwordField.getText().isEmpty() ) {
-            registrationMess.setText("Complete all fields!");
+            LoginExceptions.ComplFields();
         }else{
             String username = usernameField.getText();
 
