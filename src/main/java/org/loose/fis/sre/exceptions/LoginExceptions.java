@@ -22,4 +22,16 @@ public class LoginExceptions {
             e.printStackTrace();
         }
     }
+    public static void ComplFields() {
+        Stage window = new Stage();
+        Parent root ;
+        try {
+            root = FXMLLoader.load(LoginExceptions.class.getClassLoader().getResource("CompleteAllFields.fxml"));
+            Scene scene = new Scene(root);
+            window.setScene(scene);
+            window.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
